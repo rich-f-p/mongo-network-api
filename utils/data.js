@@ -9,4 +9,14 @@ const users = [
     'jenny',
 ];
 
+const thoughts = [
+    'love it',
+    'good',
+    'wow',
+    'thats terrible',
+    'is it real',
+    'how did you do it',
+    'lets go',
+    'fantastic',
+];
 
