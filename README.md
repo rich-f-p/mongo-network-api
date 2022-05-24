@@ -30,26 +30,53 @@ A quick walk-through to download the application. Once Installation is complete 
 
 ### Requirements
 * IDE capable of running JavaScript
-* Insomnia (or other rest api tester)
+* Insomnia (or similar alternative)
 * Mongodb
 * Node.js
 
 ### Installing
 * Fork the repository, or clone through terminal 
 * Open the file, and perform a npm install in your terminal 
-```bash
+```
 npm install
 ```
 * Then create the database in Mongodb as `socialDB`
 * The database will be empty, so the routes can be user to input data if desired
 * At this point changes can be made if desired.
 * To view the file perform a node index.js in the terminal and test routes in either a browser or Insomnia.
-```bash
+```
 node index.js
 ```
 
 ### Walkthrough
 * [CLICK HERE](https://drive.google.com/file/d/1WYg8czJPjTOsZQ5lNzELbnOF0E9WaVu0/view)
+
+
+(The following can be done through Insomnia)
+To add a user:
+```
+{
+    "username" : "aUsername",
+    "email" : "email@email.com"
+}
+```
+  
+To add a thought:
+```
+{
+  "thoughtText": "add thought here",
+  "username": "add username here",
+  "userId": "add userId here"
+}
+```
+  
+To add a reaction:
+```
+{
+    "reactionBody": "add text here",
+	"username": "add username here"
+}
+```
 
 ### Aurthor
 Richard Ferry
