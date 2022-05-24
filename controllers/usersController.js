@@ -56,6 +56,34 @@ module.exports = {
             }
         }).then(() => res.json('user deleted'))
         .catch((err) => res.status(500).json(err));
+    },
+    addFriend(req,res){
+        User.findOneAndUpdate(
+            {_id: req.params.id},
+            {$addToSet: {friends: req.params.friendsId}},
+            { runValidators: true, new: true }
+        ).then((user)=>{
+            if(!user){
+                res.status(404).json('error updating')
+            }else{
+                res.json({user})
+            }
+        })
+        .catch((err) => res.status(500).json(err));
+    },
+    delFriend(req,res){
+        User.findOneAndUpdate(
+            {_id: req.params.id},
+            {$pull: {friends: req.params.friendsId}},
+            { runValidators: true, new: true }
+        ).then((user) =>{
+            if(!user){
+                res.status(404).json('error updating')
+            }else{
+                res.json({user})
+            }
+        })
+        .catch((err) => res.status(500).json(err));
     }
 
 
