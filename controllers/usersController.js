@@ -32,6 +32,20 @@ module.exports = {
         User.create(req.body)
         .then((user) => res.json(user))
         .catch((err) => res.status(500).json('error'));
-    }
+    },
+    updateUser(req,res){
+        User.findOneAndUpdate(
+            { _id: req.params.id},
+            { $set: req.body},
+            { runValidators: true, new: true }
+        ).then((user) =>{
+            if(!user){
+                res.status(404).json('error updating')
+            }else{
+                res.json({user})
+            }
+        });
+    },
+
 
 };
