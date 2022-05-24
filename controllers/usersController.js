@@ -46,6 +46,17 @@ module.exports = {
             }
         });
     },
+    deleteUser(req,res){
+        User.findOneAndDelete({_id: req.params.id})
+        .then((user) =>{
+            if(!user){
+                res.status(404).json('erro try again later')
+            }else{
+                Thought.deleteMany({_id: {$in: user.thoughts}})
+            }
+        }).then(() => res.json('user deleted'))
+        .catch((err) => res.status(500).json(err));
+    }
 
 
 };
